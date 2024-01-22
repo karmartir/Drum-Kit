@@ -1,21 +1,20 @@
 // Detecting Button Press
-const numberOfDrumButtons = document.querySelectorAll('.drum')
+const numberOfDrumButtons = document.querySelectorAll(".drum");
 
 for (let i = 0; i <= numberOfDrumButtons.length; i++) {
-
   numberOfDrumButtons[i]?.addEventListener("click", function () {
     const buttonInnerHTML = this.innerHTML;
     makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
   });
 }
 
-// Detecting Keyboard Press  
+// Detecting Keyboard Press
 
 document.addEventListener("keypress", function (event) {
   makeSound(event.key);
+  buttonAnimation(event.key);
 });
-
-
 
 function makeSound(key) {
   switch (key) {
@@ -55,6 +54,16 @@ function makeSound(key) {
       break;
 
     default:
-      console.log('error');
+      console.log(buttonInnerHTML);
   }
+}
+
+function buttonAnimation(currentKey) {
+  const activeButton = document.querySelector(`.${currentKey}`);
+  
+  activeButton.classList.add("pressed");
+
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
