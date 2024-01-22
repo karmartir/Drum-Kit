@@ -54,13 +54,13 @@ function makeSound(key) {
       break;
 
     default:
-      console.log(buttonInnerHTML);
+      console.log('Try to use another button, play with rules, please!');
   }
 }
 
 function buttonAnimation(currentKey) {
   const activeButton = document.querySelector(`.${currentKey}`);
-  
+
   activeButton.classList.add("pressed");
 
   setTimeout(function () {
