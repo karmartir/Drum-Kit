@@ -3,7 +3,7 @@ const numberOfDrumButtons = document.querySelectorAll('.drum')
 
 for (let i = 0; i <= numberOfDrumButtons.length; i++) {
 
-  numberOfDrumButtons[i].addEventListener("click", function () {
+  numberOfDrumButtons[i]?.addEventListener("click", function () {
     const buttonInnerHTML = this.innerHTML;
     makeSound(buttonInnerHTML);
   });
@@ -55,6 +55,6 @@ function makeSound(key) {
       break;
 
     default:
-      console.log(buttonInnerHTML);
+      console.log('error');
   }
 }
