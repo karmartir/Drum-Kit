@@ -54,16 +54,28 @@ function makeSound(key) {
       break;
 
     default:
-      console.log('Try to use another button, play with rules, please!');
+      console.log("Try to use another button, play with rules, please!");
   }
 }
 
 function buttonAnimation(currentKey) {
-  const activeButton = document.querySelector(`.${currentKey}`);
+  if (
+    currentKey === "w" ||
+    currentKey === "a" ||
+    currentKey === "s" ||
+    currentKey === "d" ||
+    currentKey === "j" ||
+    currentKey === "k" ||
+    currentKey === "l"
+  ) {
+    const activeButton = document.querySelector(`.${currentKey}`);
 
-  activeButton.classList.add("pressed");
+    activeButton.classList.add("pressed");
 
-  setTimeout(function () {
-    activeButton.classList.remove("pressed");
-  }, 100);
+    setTimeout(function () {
+      activeButton.classList.remove("pressed");
+    }, 100);
+  } else {
+    console.log('use specific button only please')
+  }
 }
